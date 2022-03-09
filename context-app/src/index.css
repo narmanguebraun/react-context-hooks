@@ -25,14 +25,15 @@ nav ul li {
 }
 .book-list {
   padding:20px;
-  margin:20px;
+  margin:0px;
 }
 .book-list ul{
-  padding:20px;
+  padding:0px;
   margin:20px;
   list-style-type:none;
 }
 .book-list li {
   padding:10px;
   margin:10px;
+  border-radius:5px;
 }
