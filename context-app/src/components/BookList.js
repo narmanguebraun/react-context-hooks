@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { ThemeContext } from '../contexts/ThemeContext'
 
+// Context way 01
+
 class BookList extends Component {
   static contextType = ThemeContext;
   render() {
