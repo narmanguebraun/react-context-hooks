@@ -8,18 +8,23 @@ const SongList = () => {
     { title: 'Respite', id: 2},
     { title: 'Particles', id: 3}
   ]);
+  const [age, setAge] = useState(20);
   const addSong = (title) => {
     setSongs([...songs, { title: title, id: uuidv4() }])
     // ES6 short hand: if property name = value, you can write:
     // setSongs([...songs, { title, id: uuidv4() }])
   }
   // useEffect is a function that takes in here a callback function as a parameter
-  // that callback function is going to run everytime the component renders or re-renders
+  // that callback function runs everytime the component renders or re-renders
   // you can use this to communicate to a database or an API endpoint.
-  // every time the data changes, the component re-render, and this function will fire again
+  // every time the data changes inside the component, 
+  // the callback function inside that hook will fire again
   useEffect(() => {
     console.log('useEffect hook ran', songs);
-  })
+  }, [songs]) // limit callback function to songs
+  useEffect(() => {
+    console.log('useEffect hook ran', age);
+  }, [age]) // limit callback function to songs
   return (
     <div className="song-list">
       <ul>
@@ -28,6 +33,7 @@ const SongList = () => {
         })}
       </ul>
       <NewSongForm addSong={addSong} />
+      <button onClick={() => setAge(age + 1)}>Add 1 to age: {age}</button>
     </div>
   );
 }
